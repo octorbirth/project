@@ -1,0 +1,36 @@
+<h2>Sign up</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+    <%= f.input :password_confirmation, required: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :이름 %><br />
+    <%= f.text_field :username, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :나이 %><br />
+    <%= f.number_field :userage, autofocus: true %>
+  </div>
+  
+  <p>성별</p>
+        <label class="radio_button"> 남자
+          <%=f.radio_button :usersex, '남자', checked: true %>
+        </label>
+
+        <label class="radio_button"> 여자
+          <%=f.radio_button :usersex, '여자', checked: true %>
+        </label>
+        
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
