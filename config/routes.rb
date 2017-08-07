@@ -10,4 +10,7 @@ Rails.application.routes.draw do
   get 'item_manager' => "home#itempage" # 아이템 관리 페이지
   get 'give' => "home#give" # 신청 목록
   get 'take' => "home#take" # 대여 목록
+  
+  get 'item_upload' => "home#itemupload" # 아이템 관리 -> 등록 페이지
+  
 end
