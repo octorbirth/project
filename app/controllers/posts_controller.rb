@@ -4,7 +4,10 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @uid = params[:uid]
+    # 예제
+    # users = User.where(name: 'David', occupation: 'Code Artist').order('created_at DESC')
+    @posts = Post.where(master: @uid)
   end
 
   # GET /posts/1

@@ -13,6 +13,7 @@
 
 <form action="item_manager" method="get">
     <button type="submit" class="btn btn-primary">아이템 관리</button>
+    <input type="hidden" name="uid" value="<%=current_user.username%>">
 </form>
 
 <form action="give" method="get">
@@ -22,3 +23,24 @@
 <form action="take" method="get">
     <button type="submit" class="btn btn-primary">대여 목록</button>
 </form>
+
+<form action="search">
+  관리자 닉네임: <input type="text" name="master"><br>
+  <input type="submit" value="검색">
+</form>
+
+<% if @master != nil %>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.name %></td>
+        <td><%= post.day %></td>
+        <td><%= post.amount %></td>
+        <td><%= post.left %></td>
+        <td><%= post.res %></td>
+        <td><%= post.master %></td>
+        <td><%= image_tag post.image.thumb.url %></td>
+        <a href="/home/click/<%=post.id %>">[신청]</a><br>
+      </tr>
+      <br>
+    <% end %>
+<% end %>
