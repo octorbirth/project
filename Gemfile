@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'fog-aws' # 파일을 aws s3에 업로드
+gem 'mini_magick' #이미지 크기 조정
+gem 'carrierwave' #파일 업로드
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'

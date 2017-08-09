@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @post.name %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @post.day %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @post.amount %>
+</p>
+
+<p>
+  <strong>Left:</strong>
+  <%= @post.left %>
+</p>
+
+<p>
+  <strong>Res:</strong>
+  <%= @post.res %>
+</p>
+
+<p>
+  <strong>Master:</strong>
+  <%= @post.master %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @post.image.thumb.url %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
