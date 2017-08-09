@@ -1,1 +1,17 @@
 <h1>본인이 대여주인 아이템 목록입니다.</h1>
+  <thead>
+    <tr>
+      <th>품명 /    </th>
+      <th>대여기간 /</th>
+      <th>소유자</th>
+    </tr>
+  </thead>
+  <br>
+<% @posts.each do |post| %>
+      <tr>
+        <td><%= post.name %></td>
+        <td><%= post.day %></td>
+        <td><%= post.master %></td>
+      </tr>
+      <br>
+<% end %>

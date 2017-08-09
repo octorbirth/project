@@ -5,9 +5,11 @@
 
 <form action="glist" method="get">
     <button type="submit" class="btn btn-primary">신청자 목록</button>
+    <input type="hidden" name="uid" value="<%=current_user.username%>">
 </form>
 
 <form action="tlist" method="get">
+    <input type="hidden" name="uid" value="<%=current_user.username%>">
     <button type="submit" class="btn btn-primary">대여자 목록</button>
 </form>
 
@@ -17,10 +19,12 @@
 </form>
 
 <form action="give" method="get">
+    <input type="hidden" name="uid" value="<%=current_user.username%>">
     <button type="submit" class="btn btn-primary">신청 목록</button>
 </form>
 
 <form action="take" method="get">
+    <input type="hidden" name="uid" value="<%=current_user.username%>">
     <button type="submit" class="btn btn-primary">대여 목록</button>
 </form>
 
@@ -39,7 +43,12 @@
         <td><%= post.res %></td>
         <td><%= post.master %></td>
         <td><%= image_tag post.image.thumb.url %></td>
-        <a href="/home/click/<%=post.id %>">[신청]</a><br>
+        <form action="buy">
+        <input type="hidden" name="master" value="<%=@master%>">
+        <input type="hidden" name="item_id" value="<%=post.id%>">
+        <input type="hidden" name="uid" value="<%=current_user.username%>">
+        <input type="submit" value="신청">
+        </form>
       </tr>
       <br>
     <% end %>
