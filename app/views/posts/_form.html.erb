@@ -12,34 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label "품명" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :day %><br>
+    <%= f.label "대여기간 (단위 :일)" %><br>
     <%= f.number_field :day %>
   </div>
   <div class="field">
-    <%= f.label :amount %><br>
+    <%= f.label "보유량" %><br>
     <%= f.number_field :amount %>
   </div>
   <div class="field">
-    <%= f.label :left %><br>
-    <%= f.number_field :left %>
-  </div>
-  <div class="field">
-    <%= f.label :res %><br>
-    <%= f.number_field :res %>
-  </div>
-  <div class="field">
-    <%= f.label :master %><br>
+    <%= f.label "소유자" %><br>
     <%= f.text_field :master %>
   </div>
   <div class="field">
-    <%= f.label :image %><br>
+    <%= f.label "이미지" %><br>
     <%= f.file_field :image %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit  "생성하기"%>
   </div>
 <% end %>
