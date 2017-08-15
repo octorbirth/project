@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get ":controller(/:action(/:id))"
   post ":controller(/:action(/:id))"
   
-  get "/to_main" => "home#manager" #
   get "/glist" => "home#glist"
   get "/tlist" => "home#tlist"
   get "buy" => "home#buy" # 신청 버튼 클릭 후 다시 자기 화면으로

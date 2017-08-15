@@ -25,13 +25,14 @@
   </div>
   <div class="field">
     <%= f.label "소유자" %><br>
-    <%= f.text_field :master %>
+    <%= f.text_field :master, value: current_user.username %>
   </div>
   <div class="field">
     <%= f.label "이미지" %><br>
     <%= f.file_field :image %>
   </div>
   <div class="actions">
-    <%= f.submit  "생성하기"%>
+    <%= f.submit  "등록하기"%>
+    <%= button_tag "리셋하기", type: :reset %>
   </div>
 <% end %>
