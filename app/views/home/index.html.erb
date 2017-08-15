@@ -2,6 +2,7 @@
 
 <% if user_signed_in? %>
 <a href="/users/sign_out">로그아웃</a>
+<a href="/home/manager">메인화면으로</a>
 
 <%else%>
 <a href="/users/sign_in">로그인</a>  <!--a태그는 get방식이라서 [config] - [initializers] - [devise.rb] 에서 방식을 바꾸었다. -->

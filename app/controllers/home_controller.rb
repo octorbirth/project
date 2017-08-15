@@ -18,8 +18,10 @@ class HomeController < ApplicationController
     trade.state = "신청"
     trade.save
   
-    redirect_to "/to_main"
+    redirect_to action: "manager", master:params[:master]
   end
+  
+  
   
   def glist
     @uid = params[:uid]
