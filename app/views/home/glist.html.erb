@@ -14,7 +14,7 @@
         <td><%= post.master %></td>
       </tr>
     <form action="land">
-        <input type="hidden" name="master" value="<%=@master%>">
+        <input type="hidden" name="master" value="<%=post.master%>">
         <input type="hidden" name="item_id" value="<%=post.id%>">
         <input type="hidden" name="uid" value="<%=current_user.username%>">
         <input type="submit" value="대여해주기">

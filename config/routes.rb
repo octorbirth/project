@@ -18,8 +18,6 @@ Rails.application.routes.draw do
   get ":controller(/:action(/:id))"
   post ":controller(/:action(/:id))"
   
-  get "/glist" => "home#glist"
-  get "/tlist" => "home#tlist"
   get "buy" => "home#buy" # 신청 버튼 클릭 후 다시 자기 화면으로
   get "land" => "home#land" # 대여해주기 버튼을 눌린 후 자기 화면으로
   get "complete" => "home#complete" # 반납확인 버튼을 눌린 후 자기 화면으로

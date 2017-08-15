@@ -25,7 +25,7 @@ class HomeController < ApplicationController
   
   def glist
     @uid = params[:uid]
-     @posts = Trade.where(state: "신청", master: @uid).order('created_at DESC')
+    @posts = Trade.where(state: "신청", master: @uid).order('created_at DESC')
   end
   
   def tlist
@@ -49,13 +49,15 @@ class HomeController < ApplicationController
     line = Trade.find(@item_id)
     line.state ="대여"
     line.save
-    redirect_to "/glist"
+    redirect_to action: "glist", uid:params[:master]
+  
   end
   
   def complete
      @item_id = params[:item_id]
      line = Trade.find(@item_id)
      line.destroy
-     redirect_to "/tlist"
+     redirect_to action: "tlist", uid:params[:master]
+  
   end
 end
