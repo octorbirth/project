@@ -1,40 +1,37 @@
+<nav class="navbar navbar-inverse bg-inverse">
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link" href="#">상세정보</a>
+  </li>
+  <li class="nav-item" >
+    <a class="nav-link active" href="#"><%=current_user.username%></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/users/sign_out">로그아웃</a>
+  </li>
+</ul>
+  </a>
+</nav>
+
+<center style="magin">
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @post.name %>
-</p>
-
-<p>
-  <strong>Day:</strong>
-  <%= @post.day %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @post.amount %>
-</p>
-
-<p>
-  <strong>Left:</strong>
-  <%= @post.left %>
-</p>
-
-<p>
-  <strong>Res:</strong>
-  <%= @post.res %>
-</p>
-
-<p>
-  <strong>Master:</strong>
-  <%= @post.master %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @post.image.thumb.url %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
-<a href="/home/manager">메인화면으로</a>
+<div class="card" style="width: 20rem;">
+  <%= image_tag @post.image.url %>
+  <div class="card-block">
+    <center><h4 class="card-title"><%= @post.name %></h4></center>
+    <!--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>-->
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">소유자: <%= @post.master %></li>
+    <li class="list-group-item">대여기간: <%= @post.day %></li>
+    <li class="list-group-item">총 보유량: <%= @post.amount %></li>
+    <li class="list-group-item">현재 재고: <%= @post.left %></li>
+    <li class="list-group-item">예약자 수: <%= @post.res %></li>
+  </ul>
+  <div class="card-block">
+    <%= link_to '수정', edit_post_path(@post), class: "btn btn-secondary", style:"float: left" %> |
+    <%= link_to '뒤로', posts_path, class: "btn btn-secondary" %>
+    <a href="/home/manager" style="float: right" class="btn btn-info">메인화면으로</a>
+  </div>
+</div>
+</center>
