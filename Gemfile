@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'devise-i18n'
+
 gem 'fog-aws' # 파일을 aws s3에 업로드
 gem 'mini_magick' #이미지 크기 조정
 gem 'carrierwave' #파일 업로드

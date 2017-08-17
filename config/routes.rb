@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :posts
   devise_for :users
-  root 'home#index'
+  root :to => redirect("/users/sign_in")
 
   get "manager" => "home#manager" #application_controller 수정 후 [로그인 성공] => manager view로
   
