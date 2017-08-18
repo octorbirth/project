@@ -16,6 +16,8 @@ class HomeController < ApplicationController
     trade.uid = params[:uid]
     trade.master = line.master
     trade.state = "신청"
+    line.left = line.left-1
+    line.save
     trade.save
   
     redirect_to action: "manager", master:params[:master]
@@ -25,23 +27,23 @@ class HomeController < ApplicationController
   
   def glist
     @uid = params[:uid]
-    @posts = Trade.where(state: "신청", master: @uid).order('created_at DESC')
+    @posts = Trade.where(state: "신청", master: @uid).order('created_at ASC')
   end
   
   def tlist
     @uid = params[:uid]
-    @posts = Trade.where(state: "대여", master: @uid).order('created_at DESC')
+    @posts = Trade.where(state: "대여", master: @uid).order('updated_at ASC')
   end
   
   def give
     @uid = params[:uid]
-    @posts = Trade.where(state: "신청", uid: @uid).order('created_at DESC')
+    @posts = Trade.where(state: "신청", uid: @uid).order('created_at ASC')
   end
   
   
   def take
     @uid = params[:uid]
-    @posts = Trade.where(state: "대여", uid: @uid).order('created_at DESC')
+    @posts = Trade.where(state: "대여", uid: @uid).order('updated_at ASC')
   end
   
   def land
@@ -56,6 +58,11 @@ class HomeController < ApplicationController
   def complete
      @item_id = params[:item_id]
      line = Trade.find(@item_id)
+     
+     line_find = Post.where(:name=>line.name).where(:master=>line.master).first
+     line_find.left = line_find.left + 1
+     line_find.save
+     
      line.destroy
      redirect_to action: "tlist", uid:params[:master]
   

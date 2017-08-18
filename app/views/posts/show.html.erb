@@ -1,17 +1,4 @@
-<nav class="navbar navbar-inverse bg-inverse">
-<ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link" href="#">상세정보</a>
-  </li>
-  <li class="nav-item" >
-    <a class="nav-link active" href="#"><%=current_user.username%></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/users/sign_out">로그아웃</a>
-  </li>
-</ul>
-  </a>
-</nav>
+<%= render 'layouts/nav' %>
 
 <center style="margin-top:20px">
 <p id="notice"><%= notice %></p>
@@ -29,7 +16,7 @@
     <li class="list-group-item">예약자 수: <%= @post.res %></li>
   </ul>
   <div class="card-block">
-    <%= link_to '수정', edit_post_path(@post), class: "btn btn-secondary", style:"float: left" %> |
+    <%= link_to '수정', edit_post_path(@post), class: "btn btn-secondary" %> |
     <%= link_to '뒤로', posts_path, class: "btn btn-secondary" %>
     <a href="/home/manager" style="float: right" class="btn btn-info">메인화면으로</a>
   </div>

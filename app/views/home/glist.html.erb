@@ -4,7 +4,7 @@
 
 <div class="container" style="margin-top:50px">
     
-   <h2 style="display:inline">신청자 목록</h2><h5 style="display:inline"> (품명 / 대여기간 / 신청자)</h5>
+   <h2 style="display:inline">신청자 목록</h2><h5 style="display:inline"> (품명 / 대여기간 / 신청자 / 신청시간)</h5>
    <div style="float:right">
 
     <a href="/home/manager" class="btn btn-secondary" style="color:black" >메인화면</a>
@@ -20,7 +20,7 @@
   
     <li class="list-group-item justify-content-between">
        <<%= i %>>    
-      <%= post.name %> / 대여기간: <%= post.day %>일 / <%= post.uid %>
+      <%= post.name %> / 대여기간: <%= post.day %>일 / <%= post.uid %> / <%= post.created_at.in_time_zone("Seoul")%>
       <span class="badge badge-default">
       <form action="land">
             <input type="hidden" name="master" value="<%=post.master%>">

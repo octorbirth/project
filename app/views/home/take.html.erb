@@ -2,7 +2,7 @@
 
 <div class="container" style="margin-top:50px">
     
-   <h2 style="display:inline">대여품 목록</h2><h5 style="display:inline"> (품명 / 대여기간 / 소유자)</h5>
+   <h2 style="display:inline">대여품 목록</h2><h5 style="display:inline"> (품명 / 대여기간 / 소유자 / 대여시간)</h5>
   <div style="float:right">
 
 <a href="/home/manager" class="btn btn-secondary" style="color:black" >메인화면</a>
@@ -17,7 +17,7 @@
   
     <li class="list-group-item justify-content-between">
        <<%= i %>>    
-      <%= post.name %> / 대여기간: <%= post.day %>일 / <%= post.master %> 
+      <%= post.name %> / 대여기간: <%= post.day %>일 / <%= post.master %> / <%= post.updated_at.in_time_zone("Seoul")%>
     </li>
     
     <% i = i+1 %>
