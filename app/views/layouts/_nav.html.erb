@@ -8,13 +8,35 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">아이템 목록</a>
+          <form action="glist" method="get">
+            <button type="submit" class="btn btn-secondary">신청자 목록</button>
+            <input type="hidden" name="uid" value="<%=current_user.username%>">
+          </form>
+        </li>
+        
+        <li class="nav-item">
+          <form action="tlist" method="get">
+            <input type="hidden" name="uid" value="<%=current_user.username%>">
+            <button type="submit" class="btn btn-secondary">대여자 목록</button>
+          </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">등록하기</a>
+          <form action="item_manager" method="get">
+            <button type="submit" class="btn btn-secondary">아이템 관리</button>
+            <input type="hidden" name="uid" value="<%=current_user.username%>">
+          </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">빌리기</a>
+          <form action="give" method="get">
+            <input type="hidden" name="uid" value="<%=current_user.username%>">
+            <button type="submit" class="btn btn-secondary">신청 목록</button>
+          </form>
+        </li>
+        <li class="nav-item">
+          <form action="take" method="get">
+            <input type="hidden" name="uid" value="<%=current_user.username%>">
+            <button type="submit" class="btn btn-secondary">대여 목록</button>
+          </form>
         </li>
       </ul>
       <ul class="navbar-nav my-2 my-lg-0">

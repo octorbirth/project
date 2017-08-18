@@ -1,114 +1,52 @@
-<nav class="navbar navbar-inverse bg-inverse">
-<ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link" href="#">아이템 검색</a>
-  </li>
-  <li class="nav-item" >
-    <a class="nav-link active" href="#"><%=current_user.username%></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/users/sign_out">로그아웃</a>
-  </li>
-</ul>
-  </a>
-</nav>
-
-<form action="glist" method="get">
-    <button type="submit" class="btn btn-primary">신청자 목록</button>
-    <input type="hidden" name="uid" value="<%=current_user.username%>">
-</form>
-
-<form action="tlist" method="get">
-    <input type="hidden" name="uid" value="<%=current_user.username%>">
-    <button type="submit" class="btn btn-primary">대여자 목록</button>
-</form>
-
-<form action="item_manager" method="get">
-    <button type="submit" class="btn btn-primary">아이템 관리</button>
-    <input type="hidden" name="uid" value="<%=current_user.username%>">
-</form>
-
-<form action="give" method="get">
-    <input type="hidden" name="uid" value="<%=current_user.username%>">
-    <button type="submit" class="btn btn-primary">신청 목록</button>
-</form>
-
-<form action="take" method="get">
-    <input type="hidden" name="uid" value="<%=current_user.username%>">
-    <button type="submit" class="btn btn-primary">대여 목록</button>
-</form>
-
-<form action="search">
-  관리자 닉네임: <input type="text" name="master" value = "<%=@master%>" ><br>
-  <input type="submit" value="검색">
-</form>
-
-<% if @master != nil %>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.name %></td>
-        <td><%= post.day %></td>
-        <td><%= post.amount %></td>
-        <td><%= post.left %></td>
-        <td><%= post.res %></td>
-        <td><%= post.master %></td>
-        <td><%= image_tag post.image.thumb.url %></td>
-        <form action="buy">
-        <input type="hidden" name="master" value="<%=@master%>">
-        <input type="hidden" name="item_id" value="<%=post.id%>">
-        <input type="hidden" name="uid" value="<%=current_user.username%>">
-        <input type="submit" value="신청">
-        </form>
-      </tr>
-      <br>
-    <% end %>
-<% end %>
-
-
 
 <%= render 'layouts/nav' %>
+
 <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
  <div class="col-12 col-md-9">
    <div class="row">
      <div class="col-12 ml-4 mt-3 mb-3">
-       <form class="form-inline">
-         <input class="form-control col-10 mr-sm-2" type="text" placeholder="Search">
-         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+       <form class="form-inline" action="search">
+         <input class="form-control col-10 mr-sm-2" type="text" name="master" value = "<%=@master%>" placeholder="닉네임을 입력하세요">
+         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
        </form>
-     </div>
-   </div>
-   <hr>
-   <div class="row mt-5">
-     <div class="col-6 col-lg-4">
-       <h2>Heading</h2>
-       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-       <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-     </div><!--/span-->
-     <div class="col-6 col-lg-4">
-       <h2>Heading</h2>
-       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-       <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-     </div><!--/span-->
-     <div class="col-6 col-lg-4">
-       <h2>Heading</h2>
-       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-       <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-     </div><!--/span-->
-     <div class="col-6 col-lg-4">
-       <h2>Heading</h2>
-       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-       <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-     </div><!--/span-->
-     <div class="col-6 col-lg-4">
-       <h2>Heading</h2>
-       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-       <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-     </div><!--/span-->
-     <div class="col-6 col-lg-4">
-       <h2>Heading</h2>
-       <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-       <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-     </div><!—/span—>
-   </div><!—/row—>
+    </div>
+  </div>
+  <hr>
+  <div class="row mt-5">
+  <% if @master != nil %>
+    <% @posts.each do |post| %>
+     
+      <div class="col-6 col-lg-4">
+      
+      <div class="thumbnail" style="margin: 3px; padding: 3px; border: 2px double; border-radius: 25px;">
+        <center><%= image_tag post.image.thumb.url %></center>
+        <div class="caption" style="padding: 10px">
+          <h5 style="text-align:center"><%= post.name %></h5><hr>
+    
+          <center>
+            대여기간: <%= post.day %> 일<br>
+            총 보유량: <%= post.amount %> 개<br>
+            현재 재고: <%= post.left %> 개<br><br>
+            <form action="buy">
+              <input type="hidden" name="master" value="<%=@master%>">
+              <input type="hidden" name="item_id" value="<%=post.id%>">
+              <input type="hidden" name="uid" value="<%=current_user.username%>">
+              <input class="btn btn-secondary" type="submit" value="신청">
+            </form>
+          </center>
+        </div>
+      </div>
+      
+
+       
+       </div>
+     
+    <% end %>
+  <% end %>
+  </div><!—/row—> 
+
  </div><!—/span—>
 </main>
+
+
+ 

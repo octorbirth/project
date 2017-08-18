@@ -1,17 +1,4 @@
-<nav class="navbar navbar-inverse bg-inverse">
-<ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link" href="#">아이템관리</a>
-  </li>
-  <li class="nav-item" >
-    <a class="nav-link active" href="#"><%=current_user.username%></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/users/sign_out">로그아웃</a>
-  </li>
-</ul>
-  </a>
-</nav>
+<%= render 'layouts/nav' %>
 
 <p id="notice"><%= notice %></p>
 
