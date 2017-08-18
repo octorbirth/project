@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">대여 관리 시스템</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">아이템 목록</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">등록하기</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">빌리기</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav my-2 my-lg-0">
+        <% if user_signed_in? %>
+          <li><p><%= current_user.email %></p></li> |
+          <li><%= link_to 'MY PAGE', '/' %></li> |
+          <li><%= link_to '로그아웃', destroy_user_session_path %></li>
+        <% else %>
+          <li><%= link_to '로그인', new_user_session_path %></li>
+          <li><%= link_to '회원가입', new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

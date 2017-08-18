@@ -1,36 +1,45 @@
-<h2>Sign up</h2>
-
+<div class="container d-flex justify-content-center " style="margin-top:150px"><h1>회원가입</h1></div>
+0
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
+ <div class="text-center " style="margin-top:+50px">
+  <h2><%= f.error_notification %></h2>
+</div>
+ <div class=" d-flex justify-content-center   " style="margin-top:100px">
   <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} 글자 아래로 적어주세요." if @minimum_password_length) %>
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
-  </div>
   
-  <div class="field">
-    <%= f.label :이름 %><br />
-    <%= f.text_field :username, autofocus: true %>
-  </div>
+   <!--<div class="container d-flex justify-content-center " >-->
+  <!--<div class="field  " style="width:414.41px ;height:35px">-->
+    <%= f.label :이름 %>
+    <%= f.text_field :username, autofocus: true %><br />
+  <!--</div>-->
   
-  <div class="field">
-    <%= f.label :나이 %><br />
-    <%= f.number_field :userage, autofocus: true %>
-  </div>
+  <!--<div class="field d-flex justify-content-center">-->
+    <%= f.label :나이 %>
+    <%= f.number_field :userage, autofocus: true %><br />
+  <!--</div>-->
   
-  <p>성별</p>
-        <label class="radio_button"> 남자
+  
+  <!--<div class="field d-flex justify-content-center">-->
+  <label >성별</label>
+        <label class="radio_button "> 남자
           <%=f.radio_button :usersex, '남자', checked: true %>
         </label>
 
-        <label class="radio_button"> 여자
+        <label class="radio_button "> 여자
           <%=f.radio_button :usersex, '여자', checked: true %>
         </label>
-        
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
+       <!--</div>-->
+  <div class="form-actions d-flex justify-content-center" style="margin-top:50px">
+    <%= render "devise/shared/links" %>
+    <%= f.button :submit, "회원가입",  class:'btn btn-secondary '  %>
+     
+  
 <% end %>
 
-<%= render "devise/shared/links" %>
+
+</div></div>
+</div>
+   </div>

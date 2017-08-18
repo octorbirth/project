@@ -1,15 +1,20 @@
-<h2>Forgot your password?</h2>
+<div class="container d-flex justify-content-center " style="margin-top:150px"><h1>Forgot your password?</h1></div>
+
+ <div class=" d-flex justify-content-center  " style="margin-top:100px">
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs mx-auto">
     <%= f.input :email, required: true, autofocus: true %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
+  <div class="form-actions mt-3">
+    <%= f.button :submit, "Send me reset password instructions" ,  class:'btn btn-secondary ' %>
   </div>
 <% end %>
+</div>
+  <div class="form-actions d-flex justify-content-center" style="margin-top:30px">
 
 <%= render "devise/shared/links" %>
+</div>
